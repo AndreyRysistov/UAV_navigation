@@ -1,0 +1,18 @@
+{
+  "exp": "SURF experiment",
+  "glob": {},
+  "drone": {
+    "x_start": 160,
+    "y_start": 160
+  },
+  "detector": {
+    "algorithm": "SIFT",
+    "params": {
+      "nfeatures": 10
+    },
+    "limit_distance": 11
+  },
+  "map": {
+    "step": 160
+  }
+}

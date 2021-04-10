@@ -1,0 +1,24 @@
+{
+  "exp": "ORB experiment",
+  "glob": {
+    "path_des": "image_hashes/landscape_hashes_orb.pkl"
+  },
+  "drone": {
+    "x_start": 400,
+    "y_start": 550,
+    "speed": 40,
+    "area": 300,
+    "height": 200
+  },
+  "detector": {
+    "algorithm": "ORB",
+    "params": {
+      "nfeatures": 64,
+      "scaleFactor": 1.5
+    },
+    "limit_distance": 5
+  },
+  "map": {
+    "step": 160
+  }
+}
