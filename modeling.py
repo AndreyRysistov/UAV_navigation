@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     SPLINE_STEP = 256 # spline node step (distance between spline nodes)
     SMOOTHNESS = 8 # spline step
-    PATH_STEP = 200 # image step (distance between path nodes)
+    PATH_STEP = 200 # distance between path nodes
     
     path = np.array([[351, 855], [391, 1993], [2654, 3641]])
 
