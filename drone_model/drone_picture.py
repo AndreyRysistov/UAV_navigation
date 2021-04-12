@@ -50,7 +50,7 @@ def get_rotated_crop(image, center, size, angle_rad, debugImage = None):
     rotated_crop = rotated_crop[0:size[1], 0:size[0]]
     return bottom_corner, top_corner, left_corner, right_corner, rotated_crop
 
-def get_path_nodes(path, spline_step, smoothness, image_step, image_size, debugImage = None):
+def get_path_nodes(path, spline_step, smoothness, path_step, debugImage = None):
     x = path[:,0]
     y = path[:,1]
     distance = 0
@@ -78,7 +78,7 @@ def get_path_nodes(path, spline_step, smoothness, image_step, image_size, debugI
 
     count = 0
     for i in range(len(xsmooth)):
-        count += smoothness / image_step
+        count += smoothness / path_step
         if (debugImage is not None):
             cv2.circle(debugImage, (int(xsmooth[i]), int(ysmooth[i])), 4, (0,0,255), -1)
         point = (xsmooth[i], ysmooth[i])

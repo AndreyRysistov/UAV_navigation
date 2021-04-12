@@ -24,12 +24,11 @@ if __name__ == '__main__':
 
     SPLINE_STEP = 256 # spline node step (distance between spline nodes)
     SMOOTHNESS = 8 # spline step
-    IMAGE_STEP = 200 # image step (distance between uav camera shots)
-    IMAGE_SIZE = (250,250) # (size of uav camera shots)
+    PATH_STEP = 200 # image step (distance between path nodes)
     
     path = np.array([[351, 855], [391, 1993], [2654, 3641]])
 
-    nodes = get_path_nodes(path, SPLINE_STEP, SMOOTHNESS, IMAGE_STEP, IMAGE_SIZE, debugImage = image_debug_path)
+    nodes = get_path_nodes(path, SPLINE_STEP, SMOOTHNESS, PATH_STEP, debugImage = image_debug_path)
 
     pos = drone.get_position()
     prev_pos = (pos[0], pos[1])
