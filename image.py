@@ -1,6 +1,5 @@
 import cv2
 
-
 class Image(object):
     _img = None
     _parent = None

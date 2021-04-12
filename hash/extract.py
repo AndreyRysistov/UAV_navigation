@@ -69,6 +69,8 @@ def binImages(keypoints, descriptors=[]):
     result = []
     desc = descriptors
     kps = keypoints
+    if (descriptors is None):
+        return []
     for di in range(len(desc)):
         ds = desc[di]
         kp = kps[di]

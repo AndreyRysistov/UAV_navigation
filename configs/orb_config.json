@@ -1,22 +1,26 @@
 {
   "exp": "ORB experiment",
   "glob": {
-    "path_des": "image_hashes/landscape_hashes_orb.pkl"
+    "path_des": "image_hashes/landscape_hashes_orb.pkl",
+    "tile_size" : [512, 512],
+    "map_size" : [4096, 4096]
   },
   "drone": {
-    "x_start": 400,
-    "y_start": 550,
-    "speed": 40,
+    "rotation" : 0,
+    "x_start": 351,
+    "y_start": 855,
+    "speed": 64,
     "area": 300,
+    "image_size": [512, 512],
     "height": 200
   },
   "detector": {
     "algorithm": "ORB",
     "params": {
-      "nfeatures": 64,
-      "scaleFactor": 1.5
+      "nfeatures": 256,
+      "scaleFactor": 1.2
     },
-    "limit_distance": 5
+    "limit_distance": 16
   },
   "map": {
     "step": 160

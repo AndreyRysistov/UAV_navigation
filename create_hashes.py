@@ -31,3 +31,4 @@ if __name__ == '__main__':
     landscape_hashes = create_hashes(tiles, detector)
     with open(config.glob.path_des, 'wb') as des_file:
         pickle.dump(landscape_hashes, des_file)
+    print('Done!')
