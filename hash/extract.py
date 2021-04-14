@@ -1,10 +1,10 @@
 import numpy as np
 import cv2
-from image import Image
+from image_cls.image_cls import Image
 from hash.phash import PHash
 
 """
-  Extracts sub images and hashes from an image
+  Extracts sub images and hashes from an image_cls
 """
 
 
