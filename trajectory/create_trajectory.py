@@ -39,4 +39,6 @@ def get_path_nodes(path, spline_step, smoothness, path_step):
         if count > 1:
             count = 0;
             nodes.append({'point': (int(point[0]), int(point[1])), 'angle_rad': radians})
+    point = path[len(path)-1]
+    nodes.append({'point': (int(point[0]), int(point[1])), 'angle_rad': 0})
     return nodes, xsmooth, ysmooth

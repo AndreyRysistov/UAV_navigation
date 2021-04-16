@@ -7,7 +7,7 @@ import time
 class HashPointDetector:
     _algorithms = {
         "ORB": cv2.ORB_create,
-        "SIFT": cv2.xfeatures2d.SIFT_create,
+        #"SIFT": cv2.xfeatures2d.SIFT_create,
         #"SURF": cv2.xfeatures2d.SURF_create
     }
     _landscape_hashes = None

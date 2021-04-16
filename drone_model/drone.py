@@ -26,6 +26,7 @@ class Drone:
             start_rotation = self._rotation
         self._picture, self._picture_params = self.take_picture()
         candidates = self.find_candidates()
+        self.cur_candidates = len(candidates)
         forward = self.get_forward_vector()
         if len(candidates) > 3:
             x, y = self._detector.detect_position(self._picture, candidates)
@@ -45,6 +46,7 @@ class Drone:
             #print('Rotation! ' + str(math.degrees(self._rotation)))
             x, y = self.get_position_from_image(start_rotation=start_rotation)
         self._rotation = start_rotation
+        self.real_pos = self._x, self._y
         self._detected_pos = x, y
         return x, y
 
@@ -78,8 +80,8 @@ class Drone:
         distance = self.get_distance_to_point(destination)
         current_angle = self._rotation
         angle_rad = math.atan2(destination[0] - self._detected_pos[0], destination[1] - self._detected_pos[1])
-        if abs(angle_rad) > np.pi:
-            angle_rad += np.pi
+        #if (abs(angle_rad) > np.pi * 0.5):
+        #    angle_rad = angle_rad - np.pi
         angle_limit = np.pi / 180 * self.config.angle_limit
         right_limit = current_angle + angle_limit
         left_limit = current_angle - angle_limit
@@ -106,6 +108,9 @@ class Drone:
 
     def get_position(self):
         return int(self._x), int(self._y)
+
+    def get_speed(self):
+        return int(self._speed)
 
     def get_picture(self):
         return self._picture
