@@ -43,7 +43,7 @@ class Visualizer:
         self.draw_drone_area(picture_params)
         cv2.circle(self.landscape_map_debug_frame, actual_detectpos, 16, (255, 255, 0), -1)
         cv2.circle(self.landscape_map_debug_frame, actual_detectpos, 32, (255, 255, 0), 4)
-        cv2.line(self.landscape_map_debug_frame, detect_position, position, (0, 255, 255), 4)
+        cv2.line(self.landscape_map_debug_frame, position, actual_detectpos, (255, 255, 0), 4)
         cv2.circle(self.landscape_map_debug_frame, position, 16, (255, 255, 255), -1)
         self.update_landscape_debug_frame()
 

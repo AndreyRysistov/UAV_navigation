@@ -80,18 +80,25 @@ class Drone:
         distance = self.get_distance_to_point(destination)
         current_angle = self._rotation
         angle_rad = math.atan2(destination[0] - self._detected_pos[0], destination[1] - self._detected_pos[1])
-        #if (abs(angle_rad) > np.pi * 0.5):
-        #    angle_rad = angle_rad - np.pi
+        if (angle_rad < 0):
+            angle_rad += 2*np.pi
+        print(angle_rad)
         angle_limit = np.pi / 180 * self.config.angle_limit
         right_limit = current_angle + angle_limit
         left_limit = current_angle - angle_limit
         if distance < self._speed:
             self._speed = distance
-            current_angle = angle_rad
+            #current_angle = angle_rad
+            current_angle = max(min(angle_rad, right_limit), left_limit)
+            if (current_angle < 0): current_angle += 2*np.pi
+            if (current_angle > 2*np.pi): current_angle -= 2*np.pi
         else:
             self._speed = self._max_speed
             current_angle = max(min(angle_rad, right_limit), left_limit)
-        self._rotation = angle_rad
+            if (current_angle < 0): current_angle += 2*np.pi
+            if (current_angle > 2*np.pi): current_angle -= 2*np.pi
+        print(current_angle)
+        self._rotation = current_angle
         forward = self.get_forward_vector()
         self._x, self._y = (self._x + forward[0], self._y + forward[1])
         self._detected_pos = (self._detected_pos[0] + forward[0], self._detected_pos[1] + forward[1])

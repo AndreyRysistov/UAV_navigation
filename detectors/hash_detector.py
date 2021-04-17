@@ -39,7 +39,7 @@ class HashPointDetector:
                     if current_hashes[j] in processed_hashes:
                         processed_hashes.remove(current_hashes[j])
 
-        matches = HashPointDetector.match(processed_hashes, land_hash, self.config.limit_distance)
+        matches = HashPointDetector.match(current_hashes, land_hash, self.config.limit_distance)
 
         sort_match = sorted(matches, key=lambda match: match.distance)[:4]
         landscape_points = [point.hashes[1].get_key_point() for point in sort_match]

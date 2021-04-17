@@ -6,5 +6,5 @@
   "area": 300,
   "image_size": [512, 512],
   "height": 200,
-  "angle_limit": 30
+  "angle_limit": 20
 }

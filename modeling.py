@@ -9,9 +9,10 @@ import time
 import math
 import cv2
 from statistics import median
+import random
 
 path = np.array([[2524, 2200], [2640, 1500], [1614, 1200], [1900, 800]])# [2402, 1156], [456,2631], [3347, 2750]])
-nodes, xsmooth, ysmooth = get_path_nodes(path, spline_step=128, smoothness=3, path_step=300)
+nodes, xsmooth, ysmooth = get_path_nodes(path, spline_step=512, smoothness=3, path_step=300)
 print(nodes)
 mse = lambda v, u: np.sqrt((u[0] - v[0]) ** 2 + (u[1] - v[1]) ** 2)
 detect_real_errors = []
@@ -30,11 +31,14 @@ def main():
     visualizer = Visualizer(landscape_map)
     visualizer.draw_trajectory(xsmooth, ysmooth)
     position = drone.get_position()
+
+    shift = random.random()*100.0
+
     count_step = 0
     for node in nodes:
         destination = node['point']
         detect_position = drone.get_position_from_image()
-        while drone.get_distance_to_point(destination) > 10:
+        while drone.get_distance_to_point(destination) > 32:
             prev_position = drone.get_position()
             visualizer.draw_line_moving(prev_position, position)
             position = drone.get_position()
@@ -57,7 +61,7 @@ def main():
             visualizer.draw_drone_moving(picture_params, position, drone.real_pos, detect_position)
             visualizer.draw_drone_picture(drone.get_picture())
             visualizer.dashboard_text(0, 'Speed: {}'.format(float(drone.get_speed())))
-            visualizer.dashboard_text(1, 'Height: {}'.format(200.0+15*math.sin(time.time()*0.017)+7*math.cos(time.time()*0.15)))
+            visualizer.dashboard_text(1, 'Height: {}'.format(200.0+15*math.sin(shift + time.time()*0.017)+7*math.cos(shift*13 + time.time()*0.15)))
             visualizer.dashboard_text(2, 'Angle: {}'.format(math.degrees(abs(drone.get_rotation()))))
             visualizer.dashboard_text(3, 'Keypoints: {}'.format(drone.cur_candidates))
             visualizer.dashboard_text(6, 'Average MSE: {}'.format(median(detect_real_errors)))
