@@ -23,9 +23,9 @@ def transform_point(model_coords, image_coords, point):
         model_coords : tuple
             4 coordiantes on model.
         image_coords : tuple
-            4 same coordinates on image in order.
+            4 same coordinates on image_cls in order.
         point : tuple
-            Point to transform from image to model.
+            Point to transform from image_cls to model.
     """
     matrix = get_transformation_matrix(model_coords, image_coords)
     return get_transformed_point(matrix, point)

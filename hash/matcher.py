@@ -14,10 +14,6 @@ class Matcher(object):
     def __init__(self, hashes=[PHash, DHash, AHash]):
         self._hashes = hashes
 
-    """
-    " @return Match[]
-    """
-
     def match(self, imgs1, imgs2, distance=None):
         result = []
         hashes1 = self.hashes(imgs1)
@@ -32,13 +28,6 @@ class Matcher(object):
                         result.append(Match(h1, h2))
 
         return result
-
-    """
-    " Excludes duplicates
-    "
-    " @return {}
-    " @example print Matcher( PHash ).hashes( imgs1 )[PHash]
-    """
 
     def hashes(self, imgs, checkDuplicates=True):
         result = {}

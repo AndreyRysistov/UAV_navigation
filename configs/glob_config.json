@@ -1,0 +1,7 @@
+{
+  "path_to_map": "images_unity/map/image_400_400_0.png",
+  "path_to_orb_hashes": "image_hashes/landscape_hashes_orb.pkl",
+  "path_to_sift_hashes": "image_hashes/landscape_hashes_sift.pkl",
+  "tile_size" : [512, 512],
+  "map_size" : [4096, 4096]
+}

@@ -1,0 +1,10 @@
+{
+  "rotation" : 3.14,
+  "x_start": 2524,
+  "y_start": 2200,
+  "speed": 50,
+  "area": 300,
+  "image_size": [512, 512],
+  "height": 200,
+  "angle_limit": 20
+}

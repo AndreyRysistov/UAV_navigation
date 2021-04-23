@@ -1,18 +1,9 @@
 {
-  "exp": "SURF experiment",
-  "glob": {},
-  "drone": {
-    "x_start": 160,
-    "y_start": 160
+  "exp": "SIFT experiment",
+  "algorithm": "SIFT",
+  "params": {
+    "nfeatures": 128
   },
-  "detector": {
-    "algorithm": "SIFT",
-    "params": {
-      "nfeatures": 10
-    },
-    "limit_distance": 11
-  },
-  "map": {
-    "step": 160
-  }
+  "limit_distance": 16,
+  "path_to_hashes": "image_hashes/landscape_hashes_sift.pkl"
 }
